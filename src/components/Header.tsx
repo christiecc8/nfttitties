@@ -38,6 +38,7 @@ const Header: React.FC<{}> = () => {
       <div className="w-full px-10 mx-auto flex items-center justify-between h-full">
         <div className="flex items-center justify-center md:justify-between">
           <h1 className="font-chopper text-4xl text-white">NFTitties</h1>
+          <img src={`${process.env.PUBLIC_URL}/logo.png`} className="ml-5 h-[30px]"/>
         </div>
         <div className="flex justify-end md:justify-end w-4/6">
           {connectedWallet ? (

@@ -4,7 +4,7 @@ import useWallet from '../hooks/useWallet'
 import { useWallets } from '@web3-onboard/react'
 
 const Header: React.FC<{}> = () => {
-  const { wallet, connecting, connect, setChain } = useWallet()
+  const { wallet, connecting, connect, setChain, disconnect } = useWallet()
   const connectedWallets = useWallets();
 
   useEffect(() => {
@@ -36,14 +36,26 @@ const Header: React.FC<{}> = () => {
   return (
     <header className="h-16 w-full px-2 lg:px-0 py-4 fixed top-0 left-0 z-10 backdrop-blur-sm">
       <div className="w-full px-10 mx-auto flex items-center justify-between h-full">
-        <div className="flex items-center justify-center md:justify-between">
-          <h1 className="font-chopper text-4xl text-white">NFTitties</h1>
-          <img src={`${process.env.PUBLIC_URL}/logo.png`} className="ml-5 h-[30px]"/>
+        <div>
+          <Link
+            to={"/"}>
+            <div className="flex items-center justify-center md:justify-between">
+              <h1 className="font-chopper text-4xl text-white">NFTitties</h1>
+              <img src={`${process.env.PUBLIC_URL}/logo.png`} className="ml-5 h-[30px]"/>
+            </div>
+          </Link>
         </div>
-        <div className="flex justify-end md:justify-end w-4/6">
+        <div>
+          {/* <Link
+            to={"/about"}>
+            <h1 className="text-2xl text-white">about</h1>
+          </Link> */}
+        </div>
+        <div className="flex justify-end md:justify-end w-4/6 gap-2">
+        <button className="bg-white px-4 py-2 rounded-lg hover:bg-pink-200">View All NFTitties</button>
           {connectedWallet ? (
           <div className="flex flex-row gap-1">
-            <span className="bg-white px-4 py-1 rounded-lg">Wallet Connected</span>
+            <button className="bg-white px-4 py-2 rounded-lg" onClick={() => disconnect({label: wallet!.label})}>Wallet Connected</button>
           </div>
           ) : (
             <button className="bg-white px-4 py-2 rounded-lg"
@@ -56,7 +68,7 @@ const Header: React.FC<{}> = () => {
               }
             });
             }}
-          >Connect Wallet</button>
+          > { connecting ? "Connecting" : "Connect Wallet" }</button>
           )}
         </div>
       </div>

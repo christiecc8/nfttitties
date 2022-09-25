@@ -23,6 +23,7 @@ body {
 .section-header {
   color: white;
   font-size: 30px;
+  text-align: center;
 }
 
 .section-bg {
@@ -141,7 +142,6 @@ body {
 @font-face {
   font-family: "Spline Sans";
 }
-
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

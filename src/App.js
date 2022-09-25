@@ -1,23 +1,26 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import DemoV2 from "./components/DemoV2.tsx";
-import CategoryPage from "./components/CategoryPage.tsx";
+import Main from "./components/Main.tsx";
 import './App.css';
+import Background from "./Background.tsx";
+import WalletContextProvider from "./contexts/WalletContextProvider";
 
 function App() {
   return (
-    <div className="text-medici-primary relative overflow-auto min-h-full">
+    <WalletContextProvider>
+    <div className="text-medici-primary relative overflow-auto h-screen">
       <Router>
-        <main className="font-sans mt-16">
+        <main>
+          <Background />
           <div className="z-1 relative">
             <Routes>
-              <Route path="/" element={<DemoV2 />} />
-              <Route path="/category/:label" element={<CategoryPage />} />
+              <Route path="/" element={<Main />} />
             </Routes>
           </div>
         </main>
       </Router>
     </div>
+  </WalletContextProvider>
   );
 }
 

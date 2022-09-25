@@ -11,6 +11,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.main-page {
+  background: url('../public/gradient-bg.png');
+  background-color: #f2f2f2;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@font-face {
+  font-family: "Chopper";
+  src: url("../public/fonts/Chopper-Regular.otf");
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

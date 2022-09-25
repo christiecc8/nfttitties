@@ -2,17 +2,19 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Main from "./components/Main.tsx";
 import './App.css';
+import Header from "./components/Header";
 import Background from "./Background.tsx";
 import WalletContextProvider from "./contexts/WalletContextProvider";
 
 function App() {
   return (
     <WalletContextProvider>
-    <div className="text-medici-primary relative overflow-auto h-screen">
+    <div className="relative overflow-auto min-h-full">
+      <Background />
       <Router>
         <main>
-          <Background />
-          <div className="z-1 relative">
+          <div className="z-1 relative mt-16">
+            <Header />
             <Routes>
               <Route path="/" element={<Main />} />
             </Routes>

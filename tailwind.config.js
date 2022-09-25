@@ -6,6 +6,7 @@ module.exports = {
   theme: {
     fontFamily: {
       chopper: ['Chopper'],
+      authentic: ['AuthenticSans'],
     },
     extend: {},
   },

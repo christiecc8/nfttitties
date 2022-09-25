@@ -23,6 +23,12 @@ body {
   src: url("../public/fonts/Chopper-Regular.otf");
 }
 
+@font-face {
+  font-family: "AuthenticSans";
+  src: url("../public/fonts/AUTHENTICSans-90.otf");
+}
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

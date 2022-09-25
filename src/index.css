@@ -20,6 +20,11 @@ body {
   background-repeat: no-repeat;
 }
 
+.section-header {
+  color: white;
+  font-size: 30px;
+}
+
 .section-bg {
   background: url('../public/light-gradient-bg.png');
   background-color: #f2f2f2;
@@ -78,6 +83,50 @@ body {
   font-size: 20px;
 }
 
+.artist-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  color: white;
+  white-space: nowrap;
+}
+
+.artist-name {
+  font-size: 20px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.artist-about {
+  font-size: 20px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.artist-headshot-carlota {
+  box-sizing: border-box;
+  width: 292px;
+  height: 292px;
+
+  background: url('../public/Carlota.jpeg');
+  background-size: cover;
+  border: 1px solid #000000;
+  border-radius: 20px;
+}
+
+.artist-headshot-sarah {
+  box-sizing: border-box;
+
+  width: 292px;
+  height: 292px;
+
+  background: url('../public/Sarah.webp');
+  background-size: cover;
+  border: 1px solid #000000;
+  border-radius: 20px;
+}
 
 @font-face {
   font-family: "Chopper";

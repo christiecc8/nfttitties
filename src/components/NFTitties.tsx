@@ -6,17 +6,28 @@ import update from 'immutability-helper';
 
 const NFTitties: React.FC<{}> = () => {
   const [images, setImages] = useState<string[]>()
-  const [activeEdition, setActiveEdition] = useState<number>()
-  const [activeEditions, setActiveEditions] = useState<number[]>([])
+  // const [activeEdition, setActiveEdition] = useState<number>()
+  // const [activeEditions, setActiveEditions] = useState<number[]>([])
+
+  var [allActive, setAllActive] = useState<Map<number, number>>(new Map());
 
   const toggleActive = (index: number) => {
-    if (!activeEditions!.includes(index)) {
-      setActiveEditions(update(activeEditions, {$push: [index]})); // ['x', 'y']);
+    // if (!activeEditions!.includes(index)) {
+    //   setActiveEditions(update(activeEditions, {$push: [index]})); // ['x', 'y']);
+    // } else {
+    //   const i = activeEditions!.indexOf(index);
+    //   if (i >= 0) {
+    //     setActiveEditions(update(activeEditions, {$splice: [[i, 1]] })); 
+    //   }
+    // }
+    // setActiveEditions(update(activeEditions, {$push: [index]})); // ['x', 'y']);
+    if (!allActive?.has(index)) {
+      setAllActive(new Map(allActive?.set(index, 1)));
+      console.log(allActive)
     } else {
-      const i = activeEditions!.indexOf(index);
-      if (i >= 0) {
-        setActiveEditions(update(activeEditions, {$splice: [[i, 1]] })); 
-      }
+      var count = allActive.get(index)
+      setAllActive(new Map(allActive?.set(index, count!+=1)));
+      console.log(allActive)
     }
   }
 
@@ -39,11 +50,11 @@ const NFTitties: React.FC<{}> = () => {
         //   <NFTittiesCard imageLink={image} idx={index} makeActive={setActiveEdition}/>
         // </div>
         // <div className={`${activeEditions?.includes(index) ? 'border-2' : ''} border-white rounded-2xl p-1`}>
-          <NFTittiesCard imageLink={image} idx={index} isActive={activeEditions!.includes(index)} makeActive={toggleActive}/>
+          <NFTittiesCard imageLink={image} idx={index} count={allActive.get(index)!} isActive={allActive?.has(index) ? true : false} makeActive={toggleActive}/>
         // </div>
       ))}
       </div>
-      <footer className="w-full top-[92%] fixed text-white text-3xl p-4">Selected: {activeEditions.length}</footer>
+      <footer className="w-full top-[92%] fixed text-white text-3xl p-4">Selected: {allActive?.size}</footer>
     </div>
   )
 }

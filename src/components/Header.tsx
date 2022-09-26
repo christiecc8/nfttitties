@@ -34,14 +34,14 @@ const Header: React.FC<{}> = () => {
   const connectedWallet = wallet?.accounts[0]
 
   return (
-    <header className="h-16 w-full px-2 lg:px-0 py-4 fixed top-0 left-0 z-10 backdrop-blur-sm">
-      <div className="w-full px-10 mx-auto flex items-center justify-between h-full">
+    <header className="h-16 w-full lg:px-0 py-4 fixed top-0 left-0 z-10 backdrop-blur-sm">
+      <div className="w-full px-5 mx-auto flex items-center justify-between h-full">
         <div>
           <Link
             to={"/"}>
             <div className="flex items-center justify-center md:justify-between">
               <h1 className="font-chopper text-4xl text-white">NFTitties</h1>
-              <img src={`${process.env.PUBLIC_URL}/logo.png`} className="ml-5 h-[30px]"/>
+              <img src={`${process.env.PUBLIC_URL}/logo.png`} className="ml-2 h-[30px]"/>
             </div>
           </Link>
         </div>
@@ -51,14 +51,16 @@ const Header: React.FC<{}> = () => {
             <h1 className="text-2xl text-white">about</h1>
           </Link> */}
         </div>
-        <div className="flex justify-end md:justify-end w-4/6 gap-2">
-        <button className="bg-white px-4 py-2 rounded-lg hover:bg-pink-200">View All NFTitties</button>
+        <div className="flex justify-end md:justify-end gap-2">
+        <Link to="/mint">
+          <button className="header-button">View All NFTitties</button>
+        </Link>
           {connectedWallet ? (
           <div className="flex flex-row gap-1">
-            <button className="bg-white px-4 py-2 rounded-lg" onClick={() => disconnect({label: wallet!.label})}>Wallet Connected</button>
+            <button className="header-button" onClick={() => disconnect({label: wallet!.label})}>Wallet Connected</button>
           </div>
           ) : (
-            <button className="bg-white px-4 py-2 rounded-lg"
+            <button className="header-button"
             onClick={() => {
             setChain({chainId: '0x1'});
             connect({ 

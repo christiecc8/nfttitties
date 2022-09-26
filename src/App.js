@@ -4,6 +4,7 @@ import Main from "./components/Main.tsx";
 import './App.css';
 import Header from "./components/Header";
 import Background from "./Background.tsx";
+import NFTitties from "./components/NFTitties";
 import WalletContextProvider from "./contexts/WalletContextProvider";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <div className="z-1 relative mt-16">
             <Header />
             <Routes>
+              <Route path="/mint" element={<NFTitties />}/>
               <Route path="/" element={<Main />} />
             </Routes>
           </div>

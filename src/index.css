@@ -20,6 +20,14 @@ body {
   background-repeat: no-repeat;
 }
 
+.header-button {
+  background: white;
+  padding: 5px;
+  color: black;
+  font-size: 15px;
+  border-radius: 6px;
+}
+
 .section-header {
   color: white;
   font-size: 30px;
@@ -91,7 +99,6 @@ body {
   justify-content: center;
   width: 400px;
   color: white;
-  white-space: nowrap;
 }
 
 .artist-name {
@@ -127,6 +134,28 @@ body {
   background-size: cover;
   border: 1px solid #000000;
   border-radius: 20px;
+}
+
+.bitchcoin-info {
+  font-family: 'Spline Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 43px;
+  display: flex;
+  align-items: center;
+
+  background: linear-gradient(140.07deg, rgba(194, 172, 255, 0.9) 3.6%, rgba(155, 116, 182, 0.9) 108.75%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;  
+}
+
+.nftcardborder {
+  border-image-slice: 1;
+  border-image-source: linear-gradient(93.93deg, #E69494 14.99%, #9C79FF 87.19%);
+  border-radius: 1rem;
 }
 
 @font-face {

@@ -144,6 +144,23 @@ body {
   line-height: 43px;
   display: flex;
   align-items: center;
+  white-space: nowrap;
+
+  background: linear-gradient(140.07deg, rgba(194, 172, 255, 0.9) 3.6%, rgba(155, 116, 182, 0.9) 108.75%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;  
+}
+
+.bitchcoin-logo {
+  font-family: 'VTCElmwood';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 60px;
+  line-height: 70px;
+  display: flex;
+  align-items: center;
 
   background: linear-gradient(140.07deg, rgba(194, 172, 255, 0.9) 3.6%, rgba(155, 116, 182, 0.9) 108.75%);
   -webkit-background-clip: text;
@@ -166,6 +183,11 @@ body {
 @font-face {
   font-family: "AuthenticSans";
   src: url("../public/fonts/AUTHENTICSans-90.otf");
+}
+
+@font-face {
+  font-family: "VTCElmwood";
+  src: url("../public/fonts/VTCElmwood-EightBit.otf")
 }
 
 @font-face {

@@ -42,12 +42,11 @@ const Main: React.FC<{}> = () => {
         </div>
         <h2 className="text-white text-center font-spline p-3 md:w-4/5 md:text-2xl m-5">The project is committed to raising funds for Keep-a-Breast, a breast cancer charity. It is equally concerned with onboarding more women into web3. NFTitties advocates against the unfair nudity policy bias that exists in social media platforms today.</h2>
         <img src={`${process.env.PUBLIC_URL}/proceeds-split.png`} className="m-10"/>
-        <h1 className="section-header">About the Artists</h1>
         <div className="flex flex-col items-center space-y-10">
-          <div className="flex flex-col md:flex-row md:gap-10 space-y-10 md:space-y-0 md:w-3/5">
-            <div className="inline-block space-y-3 w-4/5">
+          <div className="flex flex-col space-y-10 md:w-3/5 items-center">
+            <div className="inline-flex gap-2">
               <h1 className="bitchcoin-info">Brought to you by</h1>
-              <img src={`${process.env.PUBLIC_URL}/bitchcoin.png`}/>
+              <h1 className="bitchcoin-logo">Bitchcoin</h1>
             </div>
             <h1 className="inline-block text-center text-white lg:text-left align-top">Predating the launch of Ethereum by five months, in February 2015 conceptual artist Sarah Meyohas released the first tokenization of art on the blockchain: Bitchcoin. Today, Bitchcoin is evolving into a hub for the promotion & incubation of new ideas, deeply rooted in Web3. We are excited to be working together to develop NFTitties.</h1>
           </div>

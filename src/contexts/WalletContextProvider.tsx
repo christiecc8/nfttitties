@@ -39,9 +39,9 @@ const onboard = init({
     },
   ],
   appMetadata: {
-    name: 'Medici',
+    name: 'NFTitties',
     icon: '<svg><svg/>',
-    description: 'Regulus',
+    description: 'NFTitties',
     recommendedInjectedWallets: [
       { name: 'MetaMask', url: 'https://metamask.io' },
     ],

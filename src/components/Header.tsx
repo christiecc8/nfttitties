@@ -61,14 +61,14 @@ const Header: React.FC<{}> = () => {
           </div>
           ) : (
             <button className="header-button"
-            onClick={() => {
-            setChain({chainId: '0x1'});
-            connect({ 
+            onClick={async() => {
+            await connect({ 
               autoSelect: { 
-                label: 'Wallet Connect',
+                label: 'MetaMask',
                 disableModals: false
               }
             });
+            await setChain({chainId: '0x1'});
             }}
           > { connecting ? "Connecting" : "Connect Wallet" }</button>
           )}

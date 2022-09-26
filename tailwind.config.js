@@ -7,6 +7,7 @@ module.exports = {
     fontFamily: {
       chopper: ['Chopper'],
       authentic: ['AuthenticSans'],
+      elmwood: ['VTCElmwood'],
       sans: ['Spline Sans']
     },
     extend: {},

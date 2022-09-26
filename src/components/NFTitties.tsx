@@ -2,16 +2,18 @@ import React, { useState, useEffect } from 'react'
 import "@fontsource/spline-sans";
 import NFTittiesCard from './NFTittiesCard';
 import { COLLECTION_SIZE } from '../config.js';
-import update from 'immutability-helper';
+import { mint } from '../utils/web3';
+import useWallet from '../hooks/useWallet';
 
 const NFTitties: React.FC<{}> = () => {
   const [images, setImages] = useState<string[]>()
+
   // const [activeEdition, setActiveEdition] = useState<number>()
   // const [activeEditions, setActiveEditions] = useState<number[]>([])
-
   var [allActive, setAllActive] = useState<Map<number, number>>(new Map());
+  const { wallet, connect, setChain } = useWallet()
 
-  const toggleActive = (index: number) => {
+  const addActive = (index: number) => {
     // if (!activeEditions!.includes(index)) {
     //   setActiveEditions(update(activeEditions, {$push: [index]})); // ['x', 'y']);
     // } else {
@@ -22,12 +24,52 @@ const NFTitties: React.FC<{}> = () => {
     // }
     // setActiveEditions(update(activeEditions, {$push: [index]})); // ['x', 'y']);
     if (!allActive?.has(index)) {
+      // console.log("initialising token id " + index)
       setAllActive(new Map(allActive?.set(index, 1)));
-      console.log(allActive)
     } else {
       var count = allActive.get(index)
+      // console.log("token id " + index + " has count " + count)
       setAllActive(new Map(allActive?.set(index, count!+=1)));
-      console.log(allActive)
+    }
+  }
+
+  const removeActive = (index: number) => {
+    if (allActive?.has(index)) {
+      var count = allActive.get(index)
+      if (count) {
+        if (count > 1) {
+          setAllActive(new Map(allActive?.set(index, count-=1)));
+        } else {
+          /* remove key from the map */
+          var temp = new Map()
+          allActive.forEach(function(value, key) {
+            // console.log("Token id " + key + " has value " + value)
+            if (key !== index) {
+              // console.log("Setting for temp " + key + " value " + value)
+              temp.set(key, value)
+            }
+          });
+          setAllActive(temp);
+          // console.log(allActive)
+        }
+      }
+    }
+  }
+
+  const onMint = async() => {
+    if (!wallet) {
+      await connect({ 
+        autoSelect: { 
+          label: 'MetaMask',
+          disableModals: false
+        }
+      });
+    }
+    await setChain({ chainId: '0x1'})
+    try { 
+      mint(wallet!, allActive)
+    } catch {
+      alert("Error minting!")
     }
   }
 
@@ -43,18 +85,18 @@ const NFTitties: React.FC<{}> = () => {
 
   return (
     <div className="flex flex-col p-5 items-center pb-20">
-      <div className="flex flex-col md:grid grid-cols-2 lg:grid-cols-3 gap-3 auto-rows-max">
+      <div className="flex flex-col md:grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 auto-rows-max">
       { images && images.map((image: string, index: number) =>
       (
         // <div className={`${activeEdition === index ? 'border-2' : ''} border-white rounded-2xl p-2`}>
         //   <NFTittiesCard imageLink={image} idx={index} makeActive={setActiveEdition}/>
         // </div>
         // <div className={`${activeEditions?.includes(index) ? 'border-2' : ''} border-white rounded-2xl p-1`}>
-          <NFTittiesCard imageLink={image} idx={index} count={allActive.get(index)!} isActive={allActive?.has(index) ? true : false} makeActive={toggleActive}/>
+          <NFTittiesCard imageLink={image} idx={index} count={allActive.get(index)!} isActive={allActive?.has(index) ? true : false} makeActive={addActive} removeActive={removeActive} key={`${image}-${index}`}/>
         // </div>
       ))}
       </div>
-      <footer className="w-full top-[92%] fixed text-white text-3xl p-4">Selected: {allActive?.size}</footer>
+      <footer className="w-full left-[45%] top-[85%] fixed text-white text-3xl"><button className="bg-black px-10 py-4 rounded-[100px] drop-shadow-lg hover:bg-white hover:text-black transition-all ease-in" onClick={() => onMint()}>Mint</button></footer>
     </div>
   )
 }

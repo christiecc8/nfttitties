@@ -37,7 +37,7 @@ const Main: React.FC<{}> = () => {
           the sale will last until October 31st, 2022.
         </h2>
         <Link to="/mint">
-          <button className="bg-white text-2xl px-5 py-4 rounded-lg m-5">Mint a NFTitty today!</button>
+          <button className="bg-white text-2xl px-5 py-4 rounded-lg m-5">Mint an NFTitty today!</button>
         </Link>
         </div>
         <h2 className="text-white text-center font-spline p-3 md:w-4/5 md:text-2xl m-5">The project is committed to raising funds for Keep-a-Breast, a breast cancer charity. It is equally concerned with onboarding more women into web3. NFTitties advocates against the unfair nudity policy bias that exists in social media platforms today.</h2>

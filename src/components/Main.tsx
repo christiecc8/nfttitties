@@ -56,13 +56,13 @@ const Main: React.FC<{}> = () => {
                 <h1 className="artist-name">Carlota Dochao Naveira</h1>
                 <h2 className="artist-about">Founder, NFTitties</h2>
                 <div className="grid grid-cols-3 mt-2">
-                <a href="https://uk.linkedin.com/in/carlotadochao" target="_blank">
+                  <a href="https://uk.linkedin.com/in/carlotadochao" target="_blank" rel="noopener noreferrer">
                     <AiFillLinkedin size="50px"/>
                   </a>
-                  <a href="https://www.instagram.com/sarahmeyohas/?hl=en" target="_blank">
+                  <a href="https://www.instagram.com/blockchain_what/?utm_medium=copy_link" target="_blank" rel="noopener noreferrer">
                     <AiFillInstagram size="50px"/>
                   </a>
-                  <a href="https://twitter.com/blockhain_what?lang=en" target="_blank">
+                  <a href="https://twitter.com/blockhain_what?lang=en" target="_blank" rel="noopener noreferrer">
                     <AiFillTwitterSquare size="50px"/>
                   </a>
                 </div>
@@ -72,13 +72,13 @@ const Main: React.FC<{}> = () => {
               <h1 className="artist-name">Sarah Meyohas</h1>
               <h2 className="artist-about">Conceptual Artist & Founder of Bitchcoin</h2>
                 <div className="grid grid-cols-3 mt-2">
-                  <a href="https://sarahmeyohas.com/" target="_blank">
+                  <a href="https://sarahmeyohas.com/" target="_blank" rel="noopener noreferrer">
                     <AiOutlineGlobal size="50px"/>
                   </a>
-                  <a href="https://www.instagram.com/blockchain_what/?utm_medium=copy_link" target="_blank">
+                  <a href="https://www.instagram.com/sarahmeyohas/?hl=en" target="_blank" rel="noopener noreferrer">
                     <AiFillInstagram size="50px"/>
                   </a>
-                  <a href="https://twitter.com/sarahmeyohas" target="_blank">
+                  <a href="https://twitter.com/sarahmeyohas" target="_blank" rel="noopener noreferrer">
                     <AiFillTwitterSquare size="50px"/>
                   </a>
                 </div>

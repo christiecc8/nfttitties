@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@chakra-ui/react": "^2.3.4",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
     "@fontsource/spline-sans": "^4.5.12",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -11,6 +14,7 @@
     "@web3-onboard/injected-wallets": "^2.0.7",
     "@web3-onboard/react": "^2.3.4",
     "ethers": "^5.7.1",
+    "framer-motion": "^7.4.0",
     "immutability-helper": "^3.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

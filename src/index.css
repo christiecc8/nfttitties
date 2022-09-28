@@ -82,7 +82,7 @@ body {
 
 .why-header {
   color: white;
-  font-size: 30px;
+  font-size: 28px;
   margin-top: 20px;
   margin-bottom: 50px;
 }
@@ -173,6 +173,24 @@ body {
   border-image-slice: 1;
   border-image-source: linear-gradient(93.93deg, #E69494 14.99%, #9C79FF 87.19%);
   border-radius: 1rem;
+}
+
+.modal-header {
+  font-family: 'Spline Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 43px;
+  display: flex;
+  align-items: center;
+  
+  /* Title */
+  
+  background: linear-gradient(93.93deg, #E69494 14.99%, #9C79FF 87.19%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
 }
 
 @font-face {

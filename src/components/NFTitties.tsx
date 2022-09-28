@@ -85,7 +85,8 @@ const NFTitties: React.FC<{}> = () => {
 
   return (
     <div className="flex flex-col p-5 items-center pb-20">
-      <div className="flex flex-col md:grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 auto-rows-max">
+      <h1 className="font-sans text-2xl p-10 text-center w-4/5">Connect your wallet & Collect as many NFTitties as you like before time runs out! The more boobs minted, the closer we will be to achieving our mission.</h1>
+      <div className="flex flex-col lg:grid grid-cols-2 gap-20 auto-rows-max w-4/5">
       { images && images.map((image: string, index: number) =>
       (
         // <div className={`${activeEdition === index ? 'border-2' : ''} border-white rounded-2xl p-2`}>

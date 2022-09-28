@@ -13,8 +13,8 @@ function App() {
   <ChakraProvider>
     <WalletContextProvider>
     <div className="relative overflow-auto min-h-full">
-      <Background />
       <Router>
+        <Background />
         <main>
           <div className="z-1 relative mt-16">
             <Header />

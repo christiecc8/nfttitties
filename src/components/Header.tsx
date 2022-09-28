@@ -7,6 +7,9 @@ const Header: React.FC<{}> = () => {
   const { wallet, connecting, connect, setChain, disconnect } = useWallet()
   const connectedWallets = useWallets();
 
+  const location = useLocation()
+  const isWhiteBackground = (location.pathname === '/mint') ? true : false;
+
   useEffect(() => {
     if (!connectedWallets.length) return
 
@@ -40,8 +43,8 @@ const Header: React.FC<{}> = () => {
           <Link
             to={"/"}>
             <div className="flex items-center justify-center md:justify-between">
-              <h1 className="font-chopper text-4xl text-white">NFTitties</h1>
-              <img src={`${process.env.PUBLIC_URL}/logo.png`} className="ml-2 h-[30px]"/>
+              <h1 className={`${isWhiteBackground ? `text-black` : `text-white`} font-chopper text-4xl`}>NFTitties</h1>
+              <img src={`${process.env.PUBLIC_URL}/logo.png`} className={`${isWhiteBackground ? `filter invert` : `filter invert-0`} ml-2 h-[30px]`}/>
             </div>
           </Link>
         </div>

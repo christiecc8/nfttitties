@@ -19,7 +19,7 @@ const Main: React.FC<{}> = () => {
     <div className="flex flex-col p-5 items-center pb-20">
       <div className="flex flex-col -mt-16 items-center w-full">
         <img src={`${process.env.PUBLIC_URL}/boobs-hero.png`} className="w-4/5"/>
-        <div className="flex flex-col w-full items-center lg:grid grid-cols-3 grid-rows-1 auto-rows-max justify-center gap-10 lg:mx-20 lg:my-10 order-2 lg:order-1 lg:px-16">
+        <div className="flex flex-col w-full items-start lg:grid grid-cols-3 auto-rows-fit auto-rows-min justify-center gap-10 lg:mx-20 lg:my-10 order-2 lg:order-1 lg:px-16">
           <div className="why-3">
             <h1 className="why-header">Boobs for Good</h1>
             <h2 className="why-text">We are committed to raising funds and awarness to fight breast cancer, globally. A part of the proceeds will be donated to charitable causes.</h2>
@@ -64,7 +64,7 @@ const Main: React.FC<{}> = () => {
       </Modal>
         <div className="flex flex-col items-center space-y-10">
           <div className="flex flex-col space-y-10 md:w-3/5 items-center">
-            <div className="inline-flex gap-2">
+            <div className="inline gap-2">
               <h1 className="bitchcoin-info">Brought to you by</h1>
               <h1 className="bitchcoin-logo">Bitchcoin</h1>
             </div>

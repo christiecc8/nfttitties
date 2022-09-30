@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { CONFIG } from '../config'
 import useWallet from '../hooks/useWallet'
 import { useWallets } from '@web3-onboard/react'
 
 const Header: React.FC<{}> = () => {
   const { wallet, connecting, connect, setChain, disconnect } = useWallet()
   const connectedWallets = useWallets();
+  const env = CONFIG.DEV;
 
   const location = useLocation()
   const isWhiteBackground = (location.pathname === '/mint') ? true : false;
@@ -71,7 +73,7 @@ const Header: React.FC<{}> = () => {
                 disableModals: false
               }
             });
-            await setChain({chainId: '0x1'});
+            await setChain({chainId: `${env.network.id}`});
             }}
           > { connecting ? "Connecting" : "Connect Wallet" }</button>
           )}

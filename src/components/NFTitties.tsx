@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import "@fontsource/spline-sans";
 import NFTittiesCard from './NFTittiesCard';
-import { COLLECTION_SIZE } from '../config.js';
 import { mint } from '../utils/web3';
+import { CONFIG } from '../config';
 import useWallet from '../hooks/useWallet';
 
 const NFTitties: React.FC<{}> = () => {
+  const env = CONFIG.DEV;
   const [images, setImages] = useState<string[]>()
 
   // const [activeEdition, setActiveEdition] = useState<number>()
   // const [activeEditions, setActiveEditions] = useState<number[]>([])
   var [allActive, setAllActive] = useState<Map<number, number>>(new Map());
   const { wallet, connect, setChain } = useWallet()
+  const COLLECTION_SIZE = 25
 
   const addActive = (index: number) => {
     // if (!activeEditions!.includes(index)) {
@@ -57,19 +59,23 @@ const NFTitties: React.FC<{}> = () => {
   }
 
   const onMint = async() => {
-    if (!wallet) {
-      await connect({ 
-        autoSelect: { 
-          label: 'MetaMask',
-          disableModals: false
-        }
-      });
-    }
-    await setChain({ chainId: '0x1'})
-    try { 
-      mint(wallet!, allActive)
-    } catch {
-      alert("Error minting!")
+    if (allActive.size > 0) {
+      if (!wallet) {
+        await connect({ 
+          autoSelect: { 
+            label: 'MetaMask',
+            disableModals: false
+          }
+        });
+      }
+      await setChain({ chainId: `${env.network.id}`})
+      try { 
+        mint(wallet!, allActive)
+      } catch {
+        alert("Error minting!")
+      }
+    } else {
+      alert("Please select NFTs to mint!")
     }
   }
 

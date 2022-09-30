@@ -4,6 +4,30 @@ import { CONFIG } from "../config";
 
 const env = CONFIG.DEV
 
+export const getUri = async (index: number, callerWallet: WalletState | null) => {
+
+  if (callerWallet) {
+    const provider = new ethers.providers.Web3Provider(callerWallet.provider);
+    const signer = provider.getSigner(callerWallet.accounts[0].address);
+    const myContract = new ethers.Contract(
+      env.contract.address,
+      env.contract.abi,
+      signer
+    );
+    const uri = await myContract.uri(index)
+    return Promise.resolve(uri)
+  } else {
+    const provider = new ethers.providers.JsonRpcProvider(env.network.rpcUrl)
+    const myContract = new ethers.Contract(
+      env.contract.address,
+      env.contract.abi,
+      provider
+    );
+    const uri = await myContract.uri(index)
+    return Promise.resolve(uri)
+  }
+}
+
 export const mint = async (callerWallet: WalletState, mapping: Map<number, number>, ) => {
   var tokenIds: number[] = [];
   var tokenQuantity: number[] = [];

@@ -1,6 +1,25 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { getUri } from '../utils/web3';
+import apiClient from '../utils/apiClient';
+import useWallet from '../hooks/useWallet';
 
 const NFTittiesCard: React.FC<{imageLink: string, idx: number, count: number, isActive: boolean, makeActive: any, removeActive: any}> = ({imageLink, idx, count, isActive, makeActive, removeActive}) => {
+  const { wallet, connect, setChain } = useWallet()
+  const [tokenUri, setTokenUri] = useState<any>()
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const uri = await getUri(idx, wallet);
+        if (uri) {
+          const res = await apiClient.get(uri)
+          setTokenUri(res.data)
+        }
+      } catch (error: any) {
+        console.log(error.message)
+      }
+    })();
+  })
 
   return (
     <div className="flex flex-col items-center justify-center">
@@ -10,11 +29,30 @@ const NFTittiesCard: React.FC<{imageLink: string, idx: number, count: number, is
           <img src={imageLink} className="w-full h-full object-cover"/>
         </div>
         }
-        {/* <div className="absolute h-full left-0 top-0 right-0 p-5 hidden group-hover:block group-hover:bg-slate-900/40 bg-transparent transition-all ease-in">
-          <h1 className="text-xl font-bold text-center mt-[20%] opacity-100 text-white">{imageLink}</h1>
-        </div> */}
       </div>
       <div className="w-fit left-[110px] top-[120px] right-0 text-5xl whitespace-nowrap rounded-xl"><button className="text-black px-5 py-2 z-10" onClick={() => removeActive(idx)}>-</button>{count}<button className=" text-black px-5 py-2 z-10" onClick={() => makeActive(idx)}>+</button></div>
+      { tokenUri && (
+        <div className="w-[350px]">
+          <h1 className="font-chopper text-2xl text-center">{`${tokenUri.properties.artist_details.artist_signature}`}</h1>
+          <table className="w-full mt-5">
+            <tbody>
+              <tr>
+                <td>ID</td>
+                <td className="text-right">{tokenUri.name}</td>
+              </tr>
+              <tr>
+                <td>Medium</td>
+                <td className="text-right">{tokenUri.properties.piece_details.medium}</td>
+              </tr>
+              <tr>
+                <td>Color</td>
+                <td className="text-right">{tokenUri.properties.piece_details.color}</td>
+              </tr>
+            </tbody>
+        </table>
+        </div>
+         
+      )}
     </div>
   )
 }

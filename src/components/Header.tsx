@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { CONFIG } from '../config'
 import useWallet from '../hooks/useWallet'
 import { useWallets } from '@web3-onboard/react'
+import { AiOutlineInstagram, AiOutlineTwitter } from 'react-icons/ai'
 
 const Header: React.FC<{}> = () => {
   const { wallet, connecting, connect, setChain, disconnect } = useWallet()
   const connectedWallets = useWallets();
+  const env = CONFIG.DEV;
 
   const location = useLocation()
   const isWhiteBackground = (location.pathname === '/mint') ? true : false;
@@ -43,8 +46,10 @@ const Header: React.FC<{}> = () => {
           <Link
             to={"/"}>
             <div className="flex items-center justify-center md:justify-between">
-              <h1 className={`${isWhiteBackground ? `text-black` : `text-white`} font-chopper text-4xl`}>NFTitties</h1>
-              <img src={`${process.env.PUBLIC_URL}/logo.png`} className={`${isWhiteBackground ? `filter invert` : `filter invert-0`} ml-2 h-[30px]`}/>
+              <div className="inline-flex">
+                <h1 className={`${isWhiteBackground ? `text-black` : `text-white`} font-chopper text-4xl`}>NFTitties</h1>
+                <img src={`${process.env.PUBLIC_URL}/logo.png`} className={`${isWhiteBackground ? `filter invert` : `filter invert-0`} ml-2 h-[30px] hidden sm:block`}/>
+              </div>
             </div>
           </Link>
         </div>
@@ -55,8 +60,14 @@ const Header: React.FC<{}> = () => {
           </Link> */}
         </div>
         <div className="flex justify-end md:justify-end gap-2">
+        <a href="https://twitter.com/nftitties_space" target="_blank" rel="noopener noreferrer">
+          <AiOutlineTwitter size={30} fill={`${isWhiteBackground ? `black` : `white`}`}/>
+        </a>
+        <a href="https://www.instagram.com/nftitties.space/" target="_blank" rel="noopener noreferrer">
+          <AiOutlineInstagram size={30} fill={`${isWhiteBackground ? `black` : `white`}`}/>
+        </a>
         <Link to="/mint">
-          <button className="header-button">View All NFTitties</button>
+          <button className="header-button hidden sm:block">View All NFTitties</button>
         </Link>
           {connectedWallet ? (
           <div className="flex flex-row gap-1">
@@ -71,7 +82,7 @@ const Header: React.FC<{}> = () => {
                 disableModals: false
               }
             });
-            await setChain({chainId: '0x1'});
+            await setChain({chainId: `${env.network.id}`});
             }}
           > { connecting ? "Connecting" : "Connect Wallet" }</button>
           )}

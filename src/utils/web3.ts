@@ -1,7 +1,10 @@
 import { WalletState } from "@web3-onboard/core";
-import { ethers } from "ethers";
+import { ethers, utils } from "ethers";
+import { CONFIG } from "../config";
 
-export const mint = (callerWallet: WalletState, mapping: Map<number, number>, ) => {
+const env = CONFIG.DEV
+
+export const mint = async (callerWallet: WalletState, mapping: Map<number, number>, ) => {
   var tokenIds: number[] = [];
   var tokenQuantity: number[] = [];
   
@@ -12,6 +15,37 @@ export const mint = (callerWallet: WalletState, mapping: Map<number, number>, ) 
     count++
   })
 
-  const provider = new ethers.providers.Web3Provider(callerWallet.provider);
-  const signer = provider.getSigner(callerWallet.accounts[0].address);
+  try {
+    const provider = new ethers.providers.Web3Provider(callerWallet.provider);
+    const signer = provider.getSigner(callerWallet.accounts[0].address);
+    const myContract = new ethers.Contract(
+      env.contract.address,
+      env.contract.abi,
+      signer
+    );
+    const totalQuantity = tokenQuantity.reduce((prev, curr) => prev + curr, 0)
+    const price = await myContract.price(0)
+    const totalPrice = ethers.BigNumber.from(price).mul(totalQuantity)
+
+    const result = await myContract.mintBatch(
+      utils.getAddress(callerWallet.accounts[0].address),
+      tokenIds,
+      tokenQuantity,
+      "0x0000000000000000000000000000000000000000"
+    , { 
+      value: totalPrice,
+      gasLimit: 3000000
+    }
+    )
+    await result.wait(5);
+    console.log(result)
+    return Promise.resolve(true)
+  } catch (error: any) {
+    if (error.message) {
+      alert(error.message)
+    } else {
+      alert("Something went wrong!")
+    }
+    return Promise.resolve(false)
+  }
 }

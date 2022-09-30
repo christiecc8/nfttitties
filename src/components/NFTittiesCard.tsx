@@ -5,7 +5,7 @@ const NFTittiesCard: React.FC<{imageLink: string, idx: number, count: number, is
   return (
     <div className="flex flex-col items-center justify-center">
       <div className={`${isActive ? 'border-black border-4' : 'border-4 border-transparent'} group-relative`}>
-        { (idx === 14) ? <div className="w-[350px] h-[350px] object-cover overflow-hidden"><video src={imageLink} className="w-full h-full object-cover"/></div>:
+        { (imageLink.endsWith('.mov')) ? <div className="w-[350px] h-[350px] object-cover overflow-hidden"><video src={imageLink} className="w-full h-full object-cover"/></div>:
         <div className="w-[350px] h-[350px] object-cover overflow-hidden">
           <img src={imageLink} className="w-full h-full object-cover"/>
         </div>

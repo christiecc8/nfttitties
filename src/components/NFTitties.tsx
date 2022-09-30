@@ -91,7 +91,7 @@ const NFTitties: React.FC<{}> = () => {
 
   return (
     <div className="flex flex-col p-5 items-center pb-20">
-      <h1 className="font-sans text-2xl p-10 text-center w-4/5">Connect your wallet & Collect as many NFTitties as you like before time runs out! The more boobs minted, the closer we will be to achieving our mission.</h1>
+      <h1 className="font-sans text-2xl py-8 px-10 text-center w-4/5">Connect your wallet & Collect as many NFTitties as you like before time runs out! The more boobs minted, the closer we will be to achieving our mission.</h1>
       <div className="flex flex-col lg:grid grid-cols-2 gap-20 auto-rows-max w-4/5">
       { env && env.cloudinary.imageUrls.map((image: string, index: number) =>
       (

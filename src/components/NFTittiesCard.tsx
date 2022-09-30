@@ -33,7 +33,8 @@ const NFTittiesCard: React.FC<{imageLink: string, idx: number, count: number, is
       <div className="w-fit left-[110px] top-[120px] right-0 text-5xl whitespace-nowrap rounded-xl"><button className="text-black px-5 py-2 z-10" onClick={() => removeActive(idx)}>-</button>{count}<button className=" text-black px-5 py-2 z-10" onClick={() => makeActive(idx)}>+</button></div>
       { tokenUri && (
         <div className="w-[350px]">
-          <h1 className="font-chopper text-2xl text-center">{`${tokenUri.properties.artist_details.artist_signature}`}</h1>
+          <h1 className="font-chopper text-2xl text-center">{tokenUri.properties.artist_details.artist_signature}</h1>
+          <h1 className="text-center">{tokenUri.properties.artist_details.type_of_artist}</h1>
           <table className="w-full mt-5">
             <tbody>
               <tr>

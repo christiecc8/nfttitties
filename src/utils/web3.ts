@@ -32,7 +32,10 @@ export const mint = async (callerWallet: WalletState, mapping: Map<number, numbe
       tokenIds,
       tokenQuantity,
       "0x0000000000000000000000000000000000000000"
-    , { value: totalPrice }
+    , { 
+      value: totalPrice,
+      gasLimit: 3000000
+    }
     )
     await result.wait(5);
     console.log(result)

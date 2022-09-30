@@ -7,13 +7,13 @@ import useWallet from '../hooks/useWallet';
 
 const NFTitties: React.FC<{}> = () => {
   const env = CONFIG.DEV;
-  const [images, setImages] = useState<string[]>()
+  // const [images, setImages] = useState<string[]>()
 
   // const [activeEdition, setActiveEdition] = useState<number>()
   // const [activeEditions, setActiveEditions] = useState<number[]>([])
   var [allActive, setAllActive] = useState<Map<number, number>>(new Map());
   const { wallet, connect, setChain } = useWallet()
-  const COLLECTION_SIZE = 25
+  const COLLECTION_SIZE = env.cloudinary.imageUrls.length;
 
   const addActive = (index: number) => {
     // if (!activeEditions!.includes(index)) {
@@ -79,21 +79,21 @@ const NFTitties: React.FC<{}> = () => {
     }
   }
 
-  useEffect(() => {
-    if (!images) {
-      const arr: string[] = [];
-      for (let i = 0; i < COLLECTION_SIZE; i++ ) {
-        arr.push(`${process.env.PUBLIC_URL}/submissions/${i}.png`)
-      }
-      setImages(arr)
-    }
-  }, [images])
+  // useEffect(() => {
+  //   if (!images) {
+  //     const arr: string[] = [];
+  //     for (let i = 0; i < COLLECTION_SIZE; i++ ) {
+  //       arr.push(`${process.env.PUBLIC_URL}/submissions/${i}.png`)
+  //     }
+  //     setImages(arr)
+  //   }
+  // }, [images])
 
   return (
     <div className="flex flex-col p-5 items-center pb-20">
       <h1 className="font-sans text-2xl p-10 text-center w-4/5">Connect your wallet & Collect as many NFTitties as you like before time runs out! The more boobs minted, the closer we will be to achieving our mission.</h1>
       <div className="flex flex-col lg:grid grid-cols-2 gap-20 auto-rows-max w-4/5">
-      { images && images.map((image: string, index: number) =>
+      { env && env.cloudinary.imageUrls.map((image: string, index: number) =>
       (
         // <div className={`${activeEdition === index ? 'border-2' : ''} border-white rounded-2xl p-2`}>
         //   <NFTittiesCard imageLink={image} idx={index} makeActive={setActiveEdition}/>

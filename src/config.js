@@ -9,6 +9,41 @@ export const CONFIG = {
         'https://eth-goerli.g.alchemy.com/v2/cgHuBwD5rDkESlnFr3ee92PLMp3pkfyE',
       etherscanUrl: 'https://goerli.etherscan.io'
     },
+    cloudinary: {
+      imageUrls: [
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.01.jpg',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.02.png',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.03.jpg',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.04.gif',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.05.jpg',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.06.jpg',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.07.jpg',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.08.jpg',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.09.jpg',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.10.jpg',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.11.jpg',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.12.jpg',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.13.jpg',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.14.jpg',
+        'https://res.cloudinary.com/medici-labs/video/upload/v1664565676/NFTitties-Final/1.15.mov',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.16.png',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.17.jpg',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.18.jpg',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.19.png',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.20.jpg',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.21.jpg',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.22.jpg',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.23.jpg',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.24.jpg',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.25.jpg',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.26.jpg',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.27.jpg',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.28.jpg',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.29.jpg',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.30.jpg',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.31.jpg'
+      ]
+    },
     contract: {
       address: '0xb92670e33Bf3832FA104319c4dc0a05FB2450735',
       abi: [

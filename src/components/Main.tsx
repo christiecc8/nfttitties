@@ -17,9 +17,9 @@ const Main: React.FC<{}> = () => {
 
   return (
     <div className="flex flex-col p-5 items-center pb-20">
-      <div className="flex flex-col -mt-16 items-center w-full">
+      <div className="flex flex-col -mt-16 items-center w-full space-y-5">
         <img src={`${process.env.PUBLIC_URL}/boobs-hero.png`} className="w-4/5"/>
-        <div className="flex flex-col w-full items-start lg:grid grid-cols-3 auto-rows-fit auto-rows-min justify-center gap-10 lg:mx-20 lg:my-10 order-2 lg:order-1 lg:px-16">
+        <div className="flex flex-col w-full items-start lg:grid grid-cols-3 auto-rows-fit auto-rows-min justify-center gap-10 order-2 lg:order-1 lg:px-16">
           <div className="why-3">
             <h1 className="why-header">Boobs for Good</h1>
             <h2 className="why-text">We are committed to raising funds and awarness to fight breast cancer, globally. A part of the proceeds will be donated to charitable causes.</h2>
@@ -37,7 +37,7 @@ const Main: React.FC<{}> = () => {
         NFTitties is the latest women-led NFT drop with a mission to celebrate women, art and boobs while fighting breast cancer. Anyone who believed in the cause was invited to submit an artwork representing breasts through an Open Call. 31 selected submissions are included in the first drop of NFTitties, one for each day of Breast Cancer Awareness Month. Each NFTitty will be sold as an open edition until the 31st of October, 2022. 
         </h2>
         <Link to="/mint">
-          <button className="bg-white text-2xl px-5 py-4 rounded-lg m-5">View All NFTitties</button>
+          <button className="bg-white text-2xl px-5 py-4 rounded-lg">Collect NFTitties</button>
         </Link>
         </div>
         <h2 className="text-white text-center font-spline p-3 md:w-4/5 md:text-2xl m-5">We are committed to raising funds to fight breast cancer, globally. We will be donating 30% of all proceeds to <a href="https://www.keep-a-breast.org/" target="_blank" rel="noopener noreferrer" className="text-fuchsia-300">The Keep A Breast Foundation</a>.</h2>
@@ -64,7 +64,7 @@ const Main: React.FC<{}> = () => {
       </Modal>
         <div className="flex flex-col items-center space-y-10">
           <div className="flex flex-col space-y-10 md:w-3/5 items-center">
-            <div className="inline gap-2">
+            <div className="inline-flex gap-2">
               <h1 className="bitchcoin-info">Brought to you by</h1>
               <h1 className="bitchcoin-logo">Bitchcoin</h1>
             </div>

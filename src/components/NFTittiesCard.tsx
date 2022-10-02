@@ -15,7 +15,7 @@ const NFTittiesCard: React.FC<{imageLink: string, idx: number, count: number, is
           if (uri) {
             const newUri = uri as string;
             const res = await apiClient.get(newUri.replace("https://ipfs.io", "https://medici-labs.mypinata.cloud"))
-            console.log(res.data)
+            // console.log(res.data)
             setTokenUri(res.data)
           }
         } catch (error: any) {

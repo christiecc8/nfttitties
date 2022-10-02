@@ -7,7 +7,9 @@ const env = CONFIG.PROD
 export const getUri = async (index: number, callerWallet: WalletState | null) => {
 
   if (callerWallet) {
-    const provider = new ethers.providers.Web3Provider(callerWallet.provider);
+    const provider = new ethers.providers.AlchemyProvider("homestead", process.env.REACT_APP_ALCHEMY_API)
+    // const provider = new ethers.providers.AlchemyProvider()
+    // const provider = new ethers.providers.Web3Provider(callerWallet.provider);
     const signer = provider.getSigner(callerWallet.accounts[0].address);
     const myContract = new ethers.Contract(
       env.contract.address,
@@ -17,7 +19,8 @@ export const getUri = async (index: number, callerWallet: WalletState | null) =>
     const uri = await myContract.uri(index)
     return Promise.resolve(uri)
   } else {
-    const provider = new ethers.providers.JsonRpcProvider(env.network.rpcUrl)
+    const provider = new ethers.providers.AlchemyProvider("homestead", process.env.REACT_APP_ALCHEMY_API)
+    // const provider = new ethers.providers.JsonRpcProvider(env.network.rpcUrl)
     const myContract = new ethers.Contract(
       env.contract.address,
       env.contract.abi,
@@ -40,7 +43,7 @@ export const mint = async (callerWallet: WalletState, mapping: Map<number, numbe
   })
 
   try {
-    const provider = new ethers.providers.Web3Provider(callerWallet.provider);
+    const provider = new ethers.providers.AlchemyProvider("homestead", process.env.REACT_APP_ALCHEMY_API)
     const signer = provider.getSigner(callerWallet.accounts[0].address);
     const myContract = new ethers.Contract(
       env.contract.address,

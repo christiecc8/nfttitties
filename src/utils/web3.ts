@@ -43,7 +43,7 @@ export const mint = async (callerWallet: WalletState, mapping: Map<number, numbe
   })
 
   try {
-    const provider = new ethers.providers.AlchemyProvider("homestead", process.env.REACT_APP_ALCHEMY_API)
+    const provider = new ethers.providers.Web3Provider(callerWallet.provider);
     const signer = provider.getSigner(callerWallet.accounts[0].address);
     const myContract = new ethers.Contract(
       env.contract.address,
@@ -75,4 +75,16 @@ export const mint = async (callerWallet: WalletState, mapping: Map<number, numbe
     }
     return Promise.resolve(false)
   }
+}
+
+export const getPriceFromContract = async() => {
+  const provider = new ethers.providers.AlchemyProvider("homestead", process.env.REACT_APP_ALCHEMY_API)
+  // const provider = new ethers.providers.JsonRpcProvider(env.network.rpcUrl)
+  const myContract = new ethers.Contract(
+    env.contract.address,
+    env.contract.abi,
+    provider
+  );
+  const price = await myContract.price(0)
+  return Promise.resolve(price)
 }

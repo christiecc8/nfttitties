@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import "@fontsource/spline-sans";
 import NFTittiesCard from './NFTittiesCard';
-import { mint } from '../utils/web3';
+import { mint, getPriceFromContract } from '../utils/web3';
+import { utils } from 'ethers';
 import { CONFIG } from '../config';
 import useWallet from '../hooks/useWallet';
 
@@ -12,9 +13,19 @@ const NFTitties: React.FC<{}> = () => {
   // const [activeEdition, setActiveEdition] = useState<number>()
   // const [activeEditions, setActiveEditions] = useState<number[]>([])
   var [allActive, setAllActive] = useState<Map<number, number>>(new Map());
+  const [price, setPrice] = useState<string>()
   const { wallet, connect, setChain } = useWallet()
   const COLLECTION_SIZE = env.cloudinary.imageUrls.length;
 
+  useEffect(() => {
+    (async () => {
+    if (!price) {
+      const res = await getPriceFromContract()
+      console.log(res)
+      setPrice(utils.formatEther(res._hex.toString()))
+    }
+    })();
+  }, [price])
   const addActive = (index: number) => {
     // if (!activeEditions!.includes(index)) {
     //   setActiveEditions(update(activeEditions, {$push: [index]})); // ['x', 'y']);
@@ -94,7 +105,7 @@ const NFTitties: React.FC<{}> = () => {
 
   return (
     <div className="flex flex-col p-5 items-center pb-20">
-      <h1 className="font-sans text-2xl py-8 px-10 text-center w-full sm:w-4/5">Connect your wallet & Collect as many NFTitties as you like before time runs out! The more boobs minted, the closer we will be to achieving our mission.</h1>
+      <h1 className="font-sans text-2xl py-8 px-10 text-center w-full sm:w-4/5">Connect your wallet & Collect as many NFTitties as you like before time runs out! The more boobs minted, the closer we will be to achieving our mission. Each token is {price} ETH.</h1>
       <div className="flex flex-col lg:grid grid-cols-2 gap-20 auto-rows-max w-4/5">
       { env && env.cloudinary.imageUrls.map((image: string, index: number) =>
       (

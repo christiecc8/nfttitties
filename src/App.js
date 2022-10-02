@@ -5,6 +5,7 @@ import './App.css';
 import { ChakraProvider } from '@chakra-ui/react'
 import Header from "./components/Header";
 import Background from "./Background.tsx";
+import SubmitTab from "./components/SubmitTab";
 import NFTitties from "./components/NFTitties";
 import WalletContextProvider from "./contexts/WalletContextProvider";
 
@@ -15,6 +16,7 @@ function App() {
     <div className="relative overflow-auto min-h-full">
       <Router>
         <Background />
+        <SubmitTab/>
         <main>
           <div className="z-1 relative mt-16">
             <Header />

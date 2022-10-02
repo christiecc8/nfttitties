@@ -62,7 +62,7 @@ const Main: React.FC<{}> = () => {
           </ModalBody>
           <br></br>
         </ModalContent>
-      </Modal>
+        </Modal>
         <div className="flex flex-col items-center space-y-10">
           <div className="flex flex-col space-y-10 items-center">
             <div className="inline-flex gap-2">

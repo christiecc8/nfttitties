@@ -195,6 +195,10 @@ body {
   text-fill-color: transparent;
 }
 
+.modal-button {
+  background: linear-gradient(93.93deg, #E69494 14.99%, #9C79FF 87.19%);
+}
+
 @font-face {
   font-family: "Chopper";
   src: url("../public/fonts/Chopper-Regular.otf");

@@ -8,34 +8,34 @@ import { AiOutlineInstagram, AiOutlineTwitter } from 'react-icons/ai'
 const Header: React.FC<{}> = () => {
   const { wallet, connecting, connect, setChain, disconnect } = useWallet()
   const connectedWallets = useWallets();
-  const env = CONFIG.DEV;
+  const env = CONFIG.PROD;
 
   const location = useLocation()
   const isWhiteBackground = (location.pathname === '/mint') ? true : false;
 
-  useEffect(() => {
-    if (!connectedWallets.length) return
+  // useEffect(() => {
+  //   if (!connectedWallets.length) return
 
-    const connectedWalletsLabelArray = connectedWallets.map(
-      ({ label }) => label
-    )
-    window.localStorage.setItem(
-      'connectedWallets',
-      JSON.stringify(connectedWalletsLabelArray)
-    )
-  }, [connectedWallets, wallet])
+  //   const connectedWalletsLabelArray = connectedWallets.map(
+  //     ({ label }) => label
+  //   )
+  //   window.localStorage.setItem(
+  //     'connectedWallets',
+  //     JSON.stringify(connectedWalletsLabelArray)
+  //   )
+  // }, [connectedWallets, wallet])
 
-  useEffect(() => {
-    const previouslyConnectedWallets = window.localStorage.getItem("connectedWallets");
-    if (!previouslyConnectedWallets) {
-      return;
-    }
-    async function setWalletFromLocalStorage() {
-      const parsedPreviouslyConnectedWallets = JSON.parse(previouslyConnectedWallets!);
-      await connect({ autoSelect: parsedPreviouslyConnectedWallets[0] })
-    }
-    setWalletFromLocalStorage()
-  }, [connect])
+  // useEffect(() => {
+  //   const previouslyConnectedWallets = window.localStorage.getItem("connectedWallets");
+  //   if (!previouslyConnectedWallets) {
+  //     return;
+  //   }
+  //   async function setWalletFromLocalStorage() {
+  //     const parsedPreviouslyConnectedWallets = JSON.parse(previouslyConnectedWallets!);
+  //     await connect({ autoSelect: parsedPreviouslyConnectedWallets[0] })
+  //   }
+  //   setWalletFromLocalStorage()
+  // }, [connect])
 
   const connectedWallet = wallet?.accounts[0]
 

@@ -2,7 +2,7 @@ import { WalletState } from "@web3-onboard/core";
 import { ethers, utils } from "ethers";
 import { CONFIG } from "../config";
 
-const env = CONFIG.DEV
+const env = CONFIG.PROD
 
 export const getUri = async (index: number, callerWallet: WalletState | null) => {
 

@@ -6,7 +6,7 @@ import { CONFIG } from '../config';
 import useWallet from '../hooks/useWallet';
 
 const NFTitties: React.FC<{}> = () => {
-  const env = CONFIG.DEV;
+  const env = CONFIG.PROD;
   // const [images, setImages] = useState<string[]>()
 
   // const [activeEdition, setActiveEdition] = useState<number>()
@@ -69,10 +69,13 @@ const NFTitties: React.FC<{}> = () => {
         });
       }
       await setChain({ chainId: `${env.network.id}`})
-      try { 
-        mint(wallet!, allActive)
-      } catch {
-        alert("Error minting!")
+      
+      if (wallet) {
+        try { 
+          mint(wallet!, allActive)
+        } catch {
+          alert("Error minting!")
+        }
       }
     } else {
       alert("Please select NFTs to mint!")
@@ -103,7 +106,7 @@ const NFTitties: React.FC<{}> = () => {
         // </div>
       ))}
       </div>
-      <footer className="w-full left-[45%] top-[85%] fixed text-white text-3xl"><button className="bg-black px-10 py-4 rounded-[100px] drop-shadow-lg hover:bg-white hover:text-black transition-all ease-in" onClick={() => onMint()}>Mint</button></footer>
+      <footer className="flex items-center w-full justify-center top-[85%] fixed text-white text-3xl"><button className="bg-black px-10 py-4 rounded-[100px] drop-shadow-lg hover:bg-white hover:text-black transition-all ease-in" onClick={() => onMint()}>Mint</button></footer>
     </div>
   )
 }

@@ -18,7 +18,11 @@ const Main: React.FC<{}> = () => {
   return (
     <div className="flex flex-col p-5 items-center pb-20">
       <div className="flex flex-col -mt-16 items-center w-full space-y-5">
-        <img src={`${process.env.PUBLIC_URL}/boobs-hero.png`} className="w-4/5"/>
+        <img src={`${process.env.PUBLIC_URL}/boobs-hero.png`} className="hidden sm:block w-full md:w-4/5"/>
+        <img src={`${process.env.PUBLIC_URL}/boobs-hero-mobile.png`} className="w-full block sm:hidden"/>
+        <Link to="/mint">
+          <button className="border-white border-2 text-white text-2xl px-5 py-4 rounded-lg">Collect NFTitties</button>
+        </Link>
         <div className="flex flex-col w-full items-start lg:grid grid-cols-3 auto-rows-fit auto-rows-min justify-center gap-10 order-2 lg:order-1 lg:px-16">
           <div className="why-3">
             <h1 className="why-header">Boobs for Good</h1>
@@ -29,16 +33,13 @@ const Main: React.FC<{}> = () => {
             <h2 className="why-text">There's no unfair nudity policy on the blockchain! We are an inclusive platform campaigning against censorship in art.</h2>
           </div>
           <div className="why-1">
-            <h1 className="why-header">Onboarding Women into Web3</h1>
+            <h1 className="why-header">For Women into Web3</h1>
             <h2 className="why-text">We are a women-led project striving to close the gender gap and empowering women to make their mark on the blockchain.</h2>
           </div>
         </div>
         <h2 className="text-white text-center font-spline p-3 md:w-4/5 md:text-2xl order-1 lg:order-2 mt-5">
         NFTitties is the latest women-led NFT drop with a mission to celebrate women, art and boobs while fighting breast cancer. Anyone who believed in the cause was invited to submit an artwork representing breasts through an Open Call. 31 selected submissions are included in the first drop of NFTitties, one for each day of Breast Cancer Awareness Month. Each NFTitty will be sold as an open edition until the 31st of October, 2022. 
         </h2>
-        <Link to="/mint">
-          <button className="bg-white text-2xl px-5 py-4 rounded-lg">Collect NFTitties</button>
-        </Link>
         </div>
         <h2 className="text-white text-center font-spline p-3 md:w-4/5 md:text-2xl m-5">We are committed to raising funds to fight breast cancer, globally. We will be donating 30% of all proceeds to <a href="https://www.keep-a-breast.org/" target="_blank" rel="noopener noreferrer" className="text-fuchsia-300">The Keep A Breast Foundation</a>.</h2>
         {/* <img src={`${process.env.PUBLIC_URL}/proceeds-split.png`} className="m-10"/>
@@ -63,12 +64,12 @@ const Main: React.FC<{}> = () => {
         </ModalContent>
       </Modal>
         <div className="flex flex-col items-center space-y-10">
-          <div className="flex flex-col space-y-10 md:w-3/5 items-center">
+          <div className="flex flex-col space-y-10 items-center">
             <div className="inline-flex gap-2">
               <h1 className="bitchcoin-info">Brought to you by</h1>
               <h1 className="bitchcoin-logo">Bitchcoin</h1>
             </div>
-            <h1 className="inline-block text-center text-white lg:text-left align-top">Predating the launch of Ethereum by five months, in February 2015 conceptual artist Sarah Meyohas released the first tokenization of art on the blockchain: Bitchcoin. Today, Bitchcoin is evolving into a hub for the promotion & incubation of new ideas, deeply rooted in Web3. We are excited to be working together to develop NFTitties.</h1>
+            <h1 className="text-white text-center font-spline p-3 md:w-4/5 md:text-2xl mt-5">Predating the launch of Ethereum by five months, in February 2015 conceptual artist Sarah Meyohas released the first tokenization of art on the blockchain: Bitchcoin. Today, Bitchcoin is evolving into a hub for the promotion & incubation of new ideas, deeply rooted in Web3. We are excited to be working together to develop NFTitties.</h1>
           </div>
           <div className="flex flex-col lg:flex-row gap-4 items-center justify-center">
             <div className="artist-info">

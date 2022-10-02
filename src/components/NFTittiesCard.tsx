@@ -9,14 +9,18 @@ const NFTittiesCard: React.FC<{imageLink: string, idx: number, count: number, is
 
   useEffect(() => {
     (async () => {
-      try {
-        const uri = await getUri(idx, wallet);
-        if (uri) {
-          const res = await apiClient.get(uri)
-          setTokenUri(res.data)
+      if (!tokenUri) {
+        try {
+          const uri = await getUri(idx, wallet);
+          if (uri) {
+            const newUri = uri as string;
+            const res = await apiClient.get(newUri.replace("https://ipfs.io", "https://medici-labs.mypinata.cloud"))
+            console.log(res.data)
+            setTokenUri(res.data)
+          }
+        } catch (error: any) {
+          console.log(error.message)
         }
-      } catch (error: any) {
-        console.log(error.message)
       }
     })();
   })
@@ -31,10 +35,10 @@ const NFTittiesCard: React.FC<{imageLink: string, idx: number, count: number, is
         }
       </div>
       <div className="w-fit left-[110px] top-[120px] right-0 text-5xl whitespace-nowrap rounded-xl"><button className="text-black px-5 py-2 z-10" onClick={() => removeActive(idx)}>-</button>{count}<button className=" text-black px-5 py-2 z-10" onClick={() => makeActive(idx)}>+</button></div>
-      { tokenUri && (
+      { tokenUri && tokenUri.attributes && (
         <div className="w-[350px]">
-          <h1 className="font-chopper text-2xl text-center">{tokenUri.properties.artist_details.artist_signature}</h1>
-          <h1 className="text-center">{tokenUri.properties.artist_details.type_of_artist}</h1>
+          <h1 className="font-chopper text-2xl text-center whitespace-nowrap">{tokenUri.attributes[0].value}</h1>
+          <h1 className="text-center">{tokenUri.attributes[1].value}</h1>
           <table className="w-full mt-5">
             <tbody>
               <tr>
@@ -43,11 +47,11 @@ const NFTittiesCard: React.FC<{imageLink: string, idx: number, count: number, is
               </tr>
               <tr>
                 <td>Medium</td>
-                <td className="text-right">{tokenUri.properties.piece_details.medium}</td>
+                <td className="text-right">{tokenUri.attributes[2].value}</td>
               </tr>
               <tr>
                 <td>Color</td>
-                <td className="text-right">{tokenUri.properties.piece_details.color}</td>
+                <td className="text-right">{tokenUri.attributes[3].value}</td>
               </tr>
             </tbody>
         </table>

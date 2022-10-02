@@ -4,6 +4,7 @@ import { CONFIG } from '../config'
 import useWallet from '../hooks/useWallet'
 import { useWallets } from '@web3-onboard/react'
 import { AiOutlineInstagram, AiOutlineTwitter } from 'react-icons/ai'
+import OpenseaLogo from './OpenseaLogo'
 
 const Header: React.FC<{}> = () => {
   const { wallet, connecting, connect, setChain, disconnect } = useWallet()
@@ -59,7 +60,10 @@ const Header: React.FC<{}> = () => {
             <h1 className="text-2xl text-white">about</h1>
           </Link> */}
         </div>
-        <div className="flex justify-end md:justify-end gap-2">
+        <div className="flex justify-end md:justify-end gap-1">
+        <a href="https://opensea.io/collection/nftitties-space" target="_blank" rel="noopener noreferrer">
+          <OpenseaLogo colour={`${isWhiteBackground ? `#00000` : `#FFFFFF`}`} size={22}/>
+        </a>
         <a href="https://twitter.com/nftitties_space" target="_blank" rel="noopener noreferrer">
           <AiOutlineTwitter size={30} fill={`${isWhiteBackground ? `black` : `white`}`}/>
         </a>

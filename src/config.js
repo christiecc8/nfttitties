@@ -958,7 +958,7 @@ export const CONFIG = {
         'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.12.jpg',
         'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.13.jpg',
         'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.14.jpg',
-        'https://res.cloudinary.com/medici-labs/video/upload/v1664565676/NFTitties-Final/1.15.mov',
+        'https://res.cloudinary.com/medici-labs/image/upload/v1664902693/NFTitties-Final/1.15.gif',
         'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.16.png',
         'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.17.jpg',
         'https://res.cloudinary.com/medici-labs/image/upload/v1664565678/NFTitties-Final/1.18.jpg',
